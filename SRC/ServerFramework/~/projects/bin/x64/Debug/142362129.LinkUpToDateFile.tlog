@@ -1,0 +1,1 @@
+ar -rsc  "~/projects/bin/x64/Debug/libServerFramework.a" "~/projects/bin/x64/Debug/ConnManager.o" "~/projects/bin/x64/Debug/FuncLib.o" "~/projects/bin/x64/Debug/Connection.o" "~/projects/bin/x64/Debug/log.o" "~/projects/bin/x64/Debug/LuaManager.o" "~/projects/bin/x64/Debug/MemoryPoll.o" "~/projects/bin/x64/Debug/NetworkManager.o" "~/projects/bin/x64/Debug/ScriptManager.o"

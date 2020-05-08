@@ -1,0 +1,35 @@
+﻿生成启动时间为 2020/5/2 16:10:49。
+     1>项目“D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\ServerFramework.vcxproj”在节点 2 上(Build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“~/projects/bin/x64/Debug/ServerFramework.tlog\unsuccessfulbuild”执行 Touch 任务。
+       _ValidateSources:
+         Validating sources
+       _CopySources:
+         Copying sources remotely to '192.168.31.134'
+         Skipping copying files as they are up to date.
+       _ValidateValidArchitecture:
+         Validating architecture
+         Current project architecture 'x64' is compatible with the remote system architecture 'x64' ('x64').
+       ClCompile:
+         Starting remote build
+         Compiling sources:
+         Skipping 'D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\ConnManager.cpp', as it is up to date.
+         Skipping 'D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\FuncLib.cpp', as it is up to date.
+         Skipping 'D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\Connection.cpp', as it is up to date.
+         Skipping 'D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\log.cpp', as it is up to date.
+         Skipping 'D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\LuaManager.cpp', as it is up to date.
+         Skipping 'D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\MemoryPoll.cpp', as it is up to date.
+         Skipping 'D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\NetworkManager.cpp', as it is up to date.
+         Skipping 'D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\ScriptManager.cpp', as it is up to date.
+       Lib:
+         Archiving objects
+       FinalizeBuildStatus:
+         正在删除文件“~/projects/bin/x64/Debug/ServerFramework.tlog\unsuccessfulbuild”。
+         正在对“~/projects/bin/x64/Debug/ServerFramework.tlog\ServerFramework.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\ServerFramework.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.28

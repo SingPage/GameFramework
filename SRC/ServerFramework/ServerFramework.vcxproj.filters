@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{d529fd80-c0bc-4000-afe6-1ff0a801fdd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{dcd564a9-2e3d-4238-a431-86d6dcec5e19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{cab59d18-438e-4ac4-8cc1-7feeb276e151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\FreeLock">
+      <UniqueIdentifier>{64c9c941-c163-4371-a892-f9c59f7c225b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Connection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryPoll.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="IDataBuffer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DataBuffer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="FuncLib.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="LockFreeQueue.h">
+      <Filter>Common\FreeLock</Filter>
+    </ClInclude>
+    <ClInclude Include="LockFreeQueueImpl.h">
+      <Filter>Common\FreeLock</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="atomic_ops.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Lua\HeaderFile\lua.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Lua\HeaderFile\lauxlib.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Lua\HeaderFile\lua.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Lua\HeaderFile\luaconf.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Lua\HeaderFile\lualib.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Assert.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="ConfigFile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Connection.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryPoll.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="log.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="FuncLib.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ConfigFile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
