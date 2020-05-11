@@ -111,7 +111,6 @@
     <ClInclude Include="Macro.h" />
     <ClInclude Include="MemoryPoll.h" />
     <ClInclude Include="NetworkManager.h" />
-    <ClInclude Include="ScriptManager.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
@@ -123,7 +122,6 @@
     <ClCompile Include="LuaManager.cpp" />
     <ClCompile Include="MemoryPoll.cpp" />
     <ClCompile Include="NetworkManager.cpp" />
-    <ClCompile Include="ScriptManager.cpp" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Link>

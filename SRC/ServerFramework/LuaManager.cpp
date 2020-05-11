@@ -29,6 +29,23 @@ CLuaManager * CLuaManager::GetInstancePtr(){
 	FUNCTION_FINISHING
 }
 
+BOOL CLuaManager::InitLuaState(){
+
+	FUNCTION_RUNNING
+
+	if (NULL != m_pLuaState) {
+		return FALSE;
+	}
+
+	m_pLuaState = luaL_newstate();
+
+	luaL_openlibs(m_pLuaState);
+
+	return TRUE;
+
+	FUNCTION_FINISHING
+}
+
 lua_State * CLuaManager::GetLuaState(){
 
 	FUNCTION_RUNNING
