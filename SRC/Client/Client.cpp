@@ -11,11 +11,12 @@ Client::~Client(){
 
 }
 
-BOOL Client::DispatchPacket(NetPacket* pPacket){
+BOOL Client::MessageDispatch(NetPacket* pPacket){
 
 	if (NEW_CONNECT == pPacket->pHeader.uMsgID) {
 		CConnection* pConn = (CConnection*)pPacket->pBuffer;
 		m_pService = pConn;
+
 		printf("New connect:ConnId:%u\n", (pConn->GetConnectionID()));
 
 		CNetworkManager::GetInstancePtr()->SendRawData(m_pService->GetConnectionID(), 0x5, 0x6, "Connect ACK", 12);
@@ -23,6 +24,7 @@ BOOL Client::DispatchPacket(NetPacket* pPacket){
 	else if (CLOSE_CONNECT == pPacket->pHeader.uMsgID) {
 		CConnection* pConn = (CConnection*)pPacket->pBuffer;
 		m_pService = pConn;
+
 		printf("Close connect:ConnId:%u\n", (pConn->GetConnectionID()));
 	}
 	else {
@@ -38,7 +40,7 @@ BOOL Client::DispatchPacket(NetPacket* pPacket){
 
 BOOL Client::StartNetwork() {
 
-	if (!CNetworkManager::GetInstancePtr()->StartService(10020, 2000, this)) {
+	if (!CNetworkManager::GetInstancePtr()->StartService(NULL, m_nMaxConnection, this, FALSE)) {
 		LOG_ERROR_OUTPUT("CNetworkManager StartService fail");
 		return FALSE;
 	};
@@ -56,5 +58,36 @@ BOOL Client::CloseNetwork() {
 
 CConnection* Client::ConnectToService(){
 
-	return CNetworkManager::GetInstancePtr()->AsyncConnectToIP("127.0.0.1", 10010);;
+	return CNetworkManager::GetInstancePtr()->AsyncConnectToIP(m_strServiceIp.c_str(), m_strServicePort);
+}
+
+BOOL Client::InitClientConfig(char * szConfigFileName){
+
+	INT32 nRet;
+
+	nRet = CConfigFile::GetInstancePtr()->LoadConfigFile(szConfigFileName);
+	if (FALSE == nRet) {
+		LOG_ERROR_OUTPUT("LoadConfigFile Error");
+		return FALSE;
+	}
+
+	nRet = CConfigFile::GetInstancePtr()->GetStringValue("Service_Ip", m_strServiceIp);
+	if (FALSE == nRet) {
+		LOG_ERROR_OUTPUT("Get m_strServiceIp error");
+		return FALSE;
+	}
+
+	nRet = CConfigFile::GetInstancePtr()->GetIntValue("Service_Port", m_strServicePort);
+	if (FALSE == nRet) {
+		LOG_ERROR_OUTPUT("Get m_strServiceIp error");
+		return FALSE;
+	}
+
+	nRet = CConfigFile::GetInstancePtr()->GetIntValue("Max_Connection", m_nMaxConnection);
+	if (FALSE == nRet) {
+		LOG_ERROR_OUTPUT("Get Max_Connection error");
+		return FALSE;
+	}
+
+	return TRUE;
 }

@@ -199,7 +199,7 @@ BOOL FunctionLib::StringTrim(CHAR** szSourceString){
 			}
 
 			if (sizeof(szBlankChar) - 1 == i) {
-				bEnd == TRUE;
+				bEnd = TRUE;
 			}
 		}
 	}
@@ -215,7 +215,7 @@ BOOL FunctionLib::StringTrim(CHAR** szSourceString){
 			}
 
 			if (sizeof(szBlankChar) - 1 == i) {
-				bEnd == TRUE;
+				bEnd = TRUE;
 			}
 		}
 	}

@@ -2,13 +2,17 @@
 #include"Client.h"
 
 int main() {
+	CNetworkManager* Network = CNetworkManager::GetInstancePtr();
+
 	CLog::GetInstancePtr()->StartLog("Client", "LOG_Client");
+	Client::GetInstancePtr()->InitClientConfig("Client_Config.ini");
 	Client::GetInstancePtr()->StartNetwork();
 	Client::GetInstancePtr()->ConnectToService();
 
-	for (INT32 i; TRUE; i++) {
-		CNetworkManager::GetInstancePtr()->NetPacketHandler();
-		sleep(1);
+
+	while (TRUE) {
+
+		Network->NetPacketHandler();
 	}
 
 	Client::GetInstancePtr()->CloseNetwork();

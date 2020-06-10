@@ -31,11 +31,12 @@ CNetworkManager* CNetworkManager::GetInstancePtr(){
 	FUNCTION_FINISHING
 }
 
-BOOL CNetworkManager::StartService(UINT16 usPortNum, UINT16 usMaxConn, INetPacketHandler* pPacketHandler){
+BOOL CNetworkManager::StartService(UINT16 usPortNum, UINT16 usMaxConn, INetPacketHandler* pPacketHandler, 
+	BOOL bIsService){
 
 	FUNCTION_RUNNING
 
-	if (!CConnectionManager::GetInstancePtr()->Start(usPortNum, usMaxConn, this)) {
+	if (!CConnectionManager::GetInstancePtr()->Start(usPortNum, usMaxConn, this, bIsService)) {
 		LOG_ERROR_OUTPUT("Network start fail");
 		return FALSE;
 	}
@@ -106,7 +107,7 @@ BOOL CNetworkManager::CloseConnectionHandler(CConnection* pConn){
 	FUNCTION_FINISHING
 }
 
-CConnection* CNetworkManager::AsyncConnectToIP(CHAR* IPAddr, UINT16 usPortNum){
+CConnection* CNetworkManager::AsyncConnectToIP(const CHAR* IPAddr, const UINT16 usPortNum){
 
 	FUNCTION_RUNNING
 
@@ -181,7 +182,7 @@ BOOL CNetworkManager::NetPacketHandler(){
 	NetPacket* pPacket= NULL;
 
 	if (m_RecvQueue.pop(pPacket)) {
-		if (m_pPacketHandler->DispatchPacket(pPacket)) {
+		if (m_pPacketHandler->MessageDispatch(pPacket)) {
 
 			if ((pPacket->pHeader.uMsgID != NEW_CONNECT) && (pPacket->pHeader.uMsgID != CLOSE_CONNECT)) {
 				pPacket->pBuffer->Free();

@@ -21,9 +21,6 @@
     <ClInclude Include="stdafx.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Macro.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="MemoryPoll.h">
       <Filter>Common</Filter>
     </ClInclude>
@@ -57,26 +54,32 @@
     <ClInclude Include="LuaManager.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\Lua\HeaderFile\lua.hpp">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Lua\HeaderFile\lauxlib.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Lua\HeaderFile\lua.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Lua\HeaderFile\luaconf.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Lua\HeaderFile\lualib.h">
-      <Filter>Common</Filter>
-    </ClInclude>
     <ClInclude Include="Assert.h">
       <Filter>Common</Filter>
     </ClInclude>
     <ClInclude Include="ConfigFile.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SpinLock.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\HeaderFile\lua.hpp">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\HeaderFile\lauxlib.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\HeaderFile\lua.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\HeaderFile\luaconf.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua\HeaderFile\lualib.h">
+      <Filter>Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

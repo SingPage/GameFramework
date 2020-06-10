@@ -80,10 +80,11 @@
     <RemoteCopySourceMethod>rsync</RemoteCopySourceMethod>
     <SourcePath>
     </SourcePath>
-    <IncludePath>D:\SourceCode\HeadFile\include;D:\SourceCode\HeadFile\local\include;$(SourcePath);D:\SourceCode\C++\Linux\GameFramework\GameFramework\Lua\HeaderFile</IncludePath>
+    <IncludePath>D:\SourceCode\HeadFile\include;D:\SourceCode\HeadFile\local\include;$(SourcePath);D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\Lua\HeaderFile</IncludePath>
     <OutDir>..\bin\$(Platform)\$(Configuration)\</OutDir>
     <IntDir>..\bin\$(Platform)\$(Configuration)\</IntDir>
-    <LibraryPath>D:\SourceCode\C++\Linux\GameFramework\GameFramework\Lua;$(LibraryPath)</LibraryPath>
+    <LibraryPath>D:\SourceCode\C++\Linux\GameFramework\GameFramework\ServerFramework\Lua;$(LibraryPath)</LibraryPath>
+    <RemoteProjectDir>$(RemoteRootDir)/$(ProjectName)</RemoteProjectDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
@@ -91,11 +92,6 @@
     <IncludePath>D:\SourceCode\HeadFile\include;D:\SourceCode\HeadFile\local\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemGroup>
-    <ClInclude Include="..\Lua\HeaderFile\lauxlib.h" />
-    <ClInclude Include="..\Lua\HeaderFile\lua.h" />
-    <ClInclude Include="..\Lua\HeaderFile\lua.hpp" />
-    <ClInclude Include="..\Lua\HeaderFile\luaconf.h" />
-    <ClInclude Include="..\Lua\HeaderFile\lualib.h" />
     <ClInclude Include="Assert.h" />
     <ClInclude Include="atomic_ops.h" />
     <ClInclude Include="ConfigFile.h" />
@@ -108,9 +104,15 @@
     <ClInclude Include="LockFreeQueueImpl.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="LuaManager.h" />
+    <ClInclude Include="Lua\HeaderFile\lauxlib.h" />
+    <ClInclude Include="Lua\HeaderFile\lua.h" />
+    <ClInclude Include="Lua\HeaderFile\lua.hpp" />
+    <ClInclude Include="Lua\HeaderFile\luaconf.h" />
+    <ClInclude Include="Lua\HeaderFile\lualib.h" />
     <ClInclude Include="Macro.h" />
     <ClInclude Include="MemoryPoll.h" />
     <ClInclude Include="NetworkManager.h" />
+    <ClInclude Include="SpinLock.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>

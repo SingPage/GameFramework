@@ -16,10 +16,17 @@ public:
 
 	CConnection*	ConnectToService();
 
-	virtual BOOL	DispatchPacket(NetPacket* pPacket) override;
+	BOOL			InitClientConfig(char* szConfigFileName);
+
+	// Í¨¹ý INetPacketHandler ¼Ì³Ð
+	virtual BOOL	MessageDispatch(NetPacket * pPacket) override;
 
 private:
-
 	CConnection*	m_pService;
 
+	std::string		m_strServiceIp;
+
+	INT32			m_strServicePort;
+
+	INT32			m_nMaxConnection;
 };

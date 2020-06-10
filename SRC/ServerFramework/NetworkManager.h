@@ -9,24 +9,25 @@ class CNetworkManager : public IDataHandler{
 public:
 	static CNetworkManager* GetInstancePtr();
 
-	BOOL			StartService(UINT16 usPortNum, UINT16 usMaxConn, INetPacketHandler* pPacketHandler);
+	BOOL							StartService(UINT16 usPortNum, UINT16 usMaxConn, INetPacketHandler* pPacketHandler,
+		BOOL bIsService);
 
-	BOOL			CloseService();
+	BOOL							CloseService();
 
-	BOOL			NetPacketHandler(NetPacket* pPacket);
+	BOOL							NetPacketHandler(NetPacket* pPacket);
 
-	BOOL			NewConnectionHandler(CConnection* pConn);
+	BOOL							NewConnectionHandler(CConnection* pConn);
 
-	BOOL			CloseConnectionHandler(CConnection* pConn);
+	BOOL							CloseConnectionHandler(CConnection* pConn);
 
-	CConnection*	AsyncConnectToIP(CHAR* IPAddr, UINT16 usPortNum);
+	CConnection*					AsyncConnectToIP(const CHAR* IPAddr, const UINT16 usPortNum);
 
-	BOOL			SendDataBuffer(UINT32 uConnID, IDataBuffer* pDataBuff);
+	BOOL							SendDataBuffer(UINT32 uConnID, IDataBuffer* pDataBuff);
 
-	BOOL			SendRawData(UINT32 uConnID, UINT32 uMsgID, UINT64 ulTargetID, const char* pData,
+	BOOL							SendRawData(UINT32 uConnID, UINT32 uMsgID, UINT64 ulTargetID, const char* pData,
 		UINT32 uSize);
 
-	BOOL			NetPacketHandler();
+	BOOL							NetPacketHandler();
 
 private:
 	ArrayLockFreeQueue<NetPacket*>	m_RecvQueue;

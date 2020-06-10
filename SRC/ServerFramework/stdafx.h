@@ -16,6 +16,7 @@
 #include<list>
 #include<string>
 #include<map>
+#include<deque>
 #include<signal.h>
 #include<netinet/tcp.h>
 #include<netinet/in.h>
@@ -24,9 +25,13 @@
 #include<sys/stat.h>
 #include<sys/types.h>
 #include<sys/socket.h>
+#include<atomic>
+#include<condition_variable>
+#include<queue>
 
 
 #include"Macro.h"
+#include"SpinLock.h"
 #include"FuncLib.h"
 #include"IDataBuffer.h"
 #include"DataBuffer.h"
@@ -36,3 +41,4 @@
 #include"Connection.h"
 #include"NetworkManager.h"
 #include"Assert.h"
+#include"ConfigFile.h"

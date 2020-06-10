@@ -45,7 +45,7 @@ CConnectionManager* CConnectionManager::GetInstancePtr(){
 	FUNCTION_FINISHING
 }
 
-BOOL CConnectionManager::Start(UINT16 usPortNum, UINT16 usMaxConn, IDataHandler* pDataHandler){
+BOOL CConnectionManager::Start(UINT16 usPortNum, UINT16 usMaxConn, IDataHandler* pDataHandler, BOOL bIsService){
 
 	FUNCTION_RUNNING
 
@@ -64,10 +64,12 @@ BOOL CConnectionManager::Start(UINT16 usPortNum, UINT16 usMaxConn, IDataHandler*
 			return FALSE;
 		}
 
-		if (!StartListen(usPortNum)) {
-			LOG_ERROR_OUTPUT("StartListen fail");
-			return FALSE;
-		};
+		if (TRUE == bIsService) {
+			if (!StartListen(usPortNum)) {
+				LOG_ERROR_OUTPUT("StartListen fail");
+				return FALSE;
+			}
+		}
 		
 		return TRUE;
 	}
@@ -355,10 +357,14 @@ BOOL CConnectionManager::Thread_ListenSocket(){
 	SOCKET nClientSocket = 0;
 	CConnection* pConnection = NULL;
 
-	while (m_bIsRunning) {
+	while (TRUE) {
 		memset(&ClientAddr, 0, nLen);
 		nClientSocket = accept(m_nListenSocket, (sockaddr*)&ClientAddr, &nLen);
 		if (-1 == nClientSocket) {
+
+			if (FALSE == m_bIsRunning) {
+				return TRUE;
+			}
 
 			LOG_ERROR_OUTPUT("accept m_nListenSocket fail:%s", strerror(errno));
 			return FALSE;
@@ -626,7 +632,7 @@ BOOL CConnectionManager::RestoreSignal(){
 	FUNCTION_FINISHING
 }
 
-CConnection* CConnectionManager::AsyncConnect(CHAR* IPAddr, UINT16 usPortNum){
+CConnection* CConnectionManager::AsyncConnect(const CHAR* IPAddr, const UINT16 usPortNum){
 	
 	FUNCTION_RUNNING
 

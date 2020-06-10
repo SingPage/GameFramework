@@ -65,5 +65,5 @@ public:
 
 class INetPacketHandler {
 public:
-	virtual BOOL	DispatchPacket(NetPacket* pPacket) = 0;
+	virtual BOOL	MessageDispatch(NetPacket* pPacket) = 0;
 };

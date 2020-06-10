@@ -37,7 +37,7 @@ BOOL CConfigFile::LoadConfigFile(CHAR * szFileName){
 
 	FILE* ConfigFile = fopen(szFileName, "r");
 	if (NULL == ConfigFile) {
-		LOG_ERROR_OUTPUT("fopen(%s, \"r\") error", szFileName);
+		LOG_ERROR_OUTPUT("fopen(%s, \"r\") error:%s", szFileName, strerror(errno));
 		return FALSE;
 	}
 
@@ -98,6 +98,8 @@ BOOL CConfigFile::OutputConfigToFIle(CHAR * szFileName){
 
 BOOL CConfigFile::GetStringValue(std::string strKey, std::string & strValue){
 
+	FUNCTION_RUNNING
+
 	auto itor =  m_ConfigMap.find(strKey);
 	if (m_ConfigMap .end() == itor) {
 		return FALSE;
@@ -106,9 +108,13 @@ BOOL CConfigFile::GetStringValue(std::string strKey, std::string & strValue){
 	strValue = itor->second;
 
 	return TRUE;
+
+	FUNCTION_FINISHING
 }
 
 BOOL CConfigFile::GetIntValue(std::string strKey, INT32 & nValue){
+
+	FUNCTION_RUNNING
 
 	auto itor = m_ConfigMap.find(strKey);
 	if (m_ConfigMap.end() == itor) {
@@ -118,9 +124,13 @@ BOOL CConfigFile::GetIntValue(std::string strKey, INT32 & nValue){
 	nValue = atoi(itor->second.c_str());
 
 	return TRUE;
+
+	FUNCTION_FINISHING
 }
 
 BOOL CConfigFile::GetDoubleValue(std::string strKey, DOUBLE & dblValue){
+
+	FUNCTION_RUNNING
 
 	auto itor = m_ConfigMap.find(strKey);
 	if (m_ConfigMap.end() == itor) {
@@ -130,9 +140,13 @@ BOOL CConfigFile::GetDoubleValue(std::string strKey, DOUBLE & dblValue){
 	dblValue = atof(itor->second.c_str());
 
 	return TRUE;
+
+	FUNCTION_FINISHING
 }
 
 BOOL CConfigFile::InsertConfig(std::string strKey, std::string strValue){
+
+	FUNCTION_RUNNING
 
 	auto itor = m_ConfigMap.find(strKey);
 	if (m_ConfigMap.end() != itor) {
@@ -142,4 +156,6 @@ BOOL CConfigFile::InsertConfig(std::string strKey, std::string strValue){
 	m_ConfigMap.insert(std::make_pair(strKey, strValue));
 
 	return TRUE;
+
+	FUNCTION_FINISHING
 }

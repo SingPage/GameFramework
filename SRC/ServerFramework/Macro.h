@@ -16,6 +16,7 @@ typedef char					CHAR;
 
 typedef int						SOCKET;
 typedef int						EPOLL;
+typedef int						SPINLOCK;
 
 #define TRUE					(1)
 #define FALSE					(0)

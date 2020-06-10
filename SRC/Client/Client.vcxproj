@@ -97,7 +97,7 @@
       <LibraryDependencies>ServerFramework;pthread</LibraryDependencies>
     </Link>
     <ClCompile>
-      <ShowIncludes>false</ShowIncludes>
+      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

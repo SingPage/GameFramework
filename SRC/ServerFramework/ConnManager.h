@@ -7,51 +7,51 @@ private:
 public:
 	static CConnectionManager* GetInstancePtr();
 
-	BOOL			Start(UINT16 usPortNum, UINT16 usMaxConn, IDataHandler* pDataHandler);
+	BOOL						Start(UINT16 usPortNum, UINT16 usMaxConn, IDataHandler* pDataHandler, BOOL bIsService);
 	
-	BOOL			Close();
+	BOOL						Close();
 
-	BOOL			SendNetPacketByConnID(UINT32 uConnID, IDataBuffer* pBuff);
+	BOOL						SendNetPacketByConnID(UINT32 uConnID, IDataBuffer* pBuff);
 
-	BOOL			RecvConnectionData(UINT32 pConnID, IDataBuffer* pBuff);
+	BOOL						RecvConnectionData(UINT32 pConnID, IDataBuffer* pBuff);
 
-	CConnection*	AsyncConnect(CHAR* IPAddr, UINT16 usPortNum);
+	CConnection*				AsyncConnect(const CHAR* IPAddr, const UINT16 usPortNum);
 
 private:
 
-	BOOL			Thread_ListenSocket();
+	BOOL						Thread_ListenSocket();
 
-	BOOL			CloseListenThread();
+	BOOL						CloseListenThread();
 
-	BOOL			Thread_HandleEpollEvents();
+	BOOL						Thread_HandleEpollEvents();
 
-	BOOL			CLoseEpollEventsThread();
+	BOOL						CLoseEpollEventsThread();
 
-	BOOL			StartListen(UINT16 usPortNum);
+	BOOL						StartListen(UINT16 usPortNum);
 
-	BOOL			StartEpollEvents(UINT32 usMaxConn);
+	BOOL						StartEpollEvents(UINT32 usMaxConn);
 
-	BOOL			EpollEventOperation(CConnection* pConn, UINT32 nEPollOpt, UINT32 uEpollEvents);
+	BOOL						EpollEventOperation(CConnection* pConn, UINT32 nEPollOpt, UINT32 uEpollEvents);
 
-	CConnection*	BindConnection(SOCKET nSocket, UINT32 IPAddr,BOOL ConnetcionStatus);
+	CConnection*				BindConnection(SOCKET nSocket, UINT32 IPAddr,BOOL ConnetcionStatus);
 
-	BOOL			InitConnectionVector(UINT16 usMaxConn);
+	BOOL						InitConnectionVector(UINT16 usMaxConn);
 
-	CConnection*	RequestFreeConnection();
+	CConnection*				RequestFreeConnection();
 
-	CConnection*	GetConnectionByConnID(UINT32 uConnID);
+	CConnection*				GetConnectionByConnID(UINT32 uConnID);
 
-	BOOL			CloseConnection(CConnection* pConn);
+	BOOL						CloseConnection(CConnection* pConn);
 
-	BOOL			CloseAllConnection();
+	BOOL						CloseAllConnection();
 
-	BOOL			DestroyAllConnection();
+	BOOL						DestroyAllConnection();
 
-	static VOID		SignalHandler(INT32 nValue);
+	static VOID					SignalHandler(INT32 nValue);
 
-	BOOL			SetSignal();
+	BOOL						SetSignal();
 
-	BOOL			RestoreSignal();
+	BOOL						RestoreSignal();
 
 private:
 	EPOLL						m_nEpollSocket;
